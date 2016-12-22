@@ -19,7 +19,11 @@ defmodule Geom do
   @spec area({atom(), number(), number()}) :: number()
 
   def area({shape, dim1, dim2}) do
-    area(shape, dim1, dim2)
+    case shape do
+      :rectangle -> area(:rectangle, dim1, dim2)
+      :triangle -> area(:triangle, dim1, dim2)
+      :ellipse -> area(:ellipse, dim1, dim2)
+    end
   end
 
   # Individual functions to handle each shape
