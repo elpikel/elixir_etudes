@@ -11,29 +11,34 @@ defmodule Geom do
 
   ## Examples
 
-      iex> Geom.area(2, 2)
+      iex> Geom.area({:rectangle, 2, 2})
       4
 
   """
 
-  @spec area(number(), number()) :: number()
-  def area(length \\ 1, width \\ 1) when length > -1 and width > -1 do
+  @spec area({atom(), number(), number()}) :: number()
+
+  def area({shape, dim1, dim2}) do
+    area(shape, dim1, dim2)
+  end
+
+  # Individual functions to handle each shape
+
+  @spec area(atom(), number(), number()) :: number()
+
+  defp area(:rectangle, length, width) when length >= 0 and width >= 0 do
     length * width
   end
 
-  def area(:triangle, a, b) when a > -1 and b > -1 do
-    a * b / 2.0
+  defp area(:triangle, base, height) when base >= 0 and height >= 0 do
+    base * height / 2.0
   end
 
-  def area(:rectangle, a, b) when a > -1 and b > -1 do
-    a * b
+  defp area(:ellipse, a, b) when a >= 0 and b >= 0 do
+    :math.pi * a * b
   end
 
-  def area(:ellipse, a, b) when a > -1 and b > -1 do
-    :math.pi() * a * b
-  end
-
-  def area(_, _, _) do
+  defp area(_, _, _) do
     0
   end
 end
