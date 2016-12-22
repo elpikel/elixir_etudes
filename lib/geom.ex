@@ -20,4 +20,16 @@ defmodule Geom do
   def area(length \\ 1, width \\ 1) do
     length * width
   end
+
+  def area(:triangle, a, b) do
+    a * b / 2.0
+  end
+
+  def area(:rectangle, a, b) do
+    a * b
+  end
+
+  def area(:ellipse, a, b) do
+    :math.pi() * a * b
+  end
 end
