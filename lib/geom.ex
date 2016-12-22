@@ -17,19 +17,19 @@ defmodule Geom do
   """
 
   @spec area(number(), number()) :: number()
-  def area(length \\ 1, width \\ 1) do
+  def area(length \\ 1, width \\ 1) when length > 0 and width > 0 do
     length * width
   end
 
-  def area(:triangle, a, b) do
+  def area(:triangle, a, b) when a > 0 and b > 0 do
     a * b / 2.0
   end
 
-  def area(:rectangle, a, b) do
+  def area(:rectangle, a, b) when a > 0 and b > 0 do
     a * b
   end
 
-  def area(:ellipse, a, b) do
+  def area(:ellipse, a, b) when a > 0 and b > 0 do
     :math.pi() * a * b
   end
 end
