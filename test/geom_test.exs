@@ -26,9 +26,7 @@ defmodule GeomTest do
     assert 25.132741228718345 == Geom.area(:ellipse, 2, 4)
   end
 
-  test "should throw exception when a or b is less than 0" do
-    assert_raise FunctionClauseError, fn ->
-      Geom.area(:rectangle, 3, -4)
-    end
+  test "should return 0 if is not valid shape" do
+    assert 0 == Geom.area(:ellipse, -1, 5)
   end
 end
