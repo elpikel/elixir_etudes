@@ -16,4 +16,8 @@ defmodule PowersTest do
   test "When n is negative, xn is equal to 1.0 / x-n" do
     assert Powers.rise(2, -3) == 0.125
   end
+
+  test "nth floor" do
+    assert Powers.nth_root(27, 3) == 3.0
+  end
 end
