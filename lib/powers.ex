@@ -13,6 +13,7 @@ defmodule Powers do
 
     f = rise(a, n) - x
     f_prime = n * rise(a, n - 1)
+
     next = a - f / f_prime
     change = abs(next - a)
 
